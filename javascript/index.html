@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS In Depth</title>
+</head>
+<body>
+    <!-- When the button is clicked, the "The time is?" text will be replaced by the current time. -->
+    <button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button> 
+
+
+    <!-- The code above can be replaced by the following: -->
+    <button onclick="this.innerHTML = Date()">The time is?</button>
+
+    <!-- It can also be replaced by a function in a JavaScript file. -->
+    <button onclick="displayDate()">The time is?</button>
+
+    <script>
+        // Arrow functions return by default. 
+        const displayDate = () => Date();
+    </script>
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -1,36 +1,26 @@
+// Variables
 
-# Javascript
-> *This page is an explanation of many JavaScript concepts with assumption that you already know some programming language.*
-
-## Variables
-
----
-```javascript
 
 var x;
 let y; // => let was introduced in ES6 to improve variables scopes. Essentially to fix 'var'
-const z = "This cannot be changed later on."; 
+const z = "This cannot be changed later on.";
 
 x = 10;
 y = 20;
 let total = y + x; // => output: 30
-```
 
-## Data Types
----
-```javascript
+
+
+// Data Types (Quickly)
+
 let length = 16;                               // Number
 let lastName = "Johnson";                      // String
-let x = {firstName:"John", lastName:"Doe"};    // Object 
-```
+let x = { firstName: "John", lastName: "Doe" };    // Object 
 
 
 
-## Functions
+// Functions 
 
----
-
-```javascript
 // Built-in functions:
 console.log("Hello world!");
 
@@ -43,7 +33,7 @@ function square(number) {
 square(9) // => output: 81
 
 // Arrow functions were implemented in ES6
-const ES6Function = (number) =>{
+const ES6Function = (number) => {
     return number * number;
 }
 
@@ -55,24 +45,19 @@ const arrowFunc = () => number * number;
 // A function must be invoked to run code within itself.
 let x = ES6Function(9);
 console.log(x) // => output: 81
-```
 
-## Objects 
 
----
+// Objects 
 
-Objects are comprised of *key* and *value* pairs. You can have as many as you would like/need.
-
-```javascript
-const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+const person = { firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue" };
 
 // OR
 
 const person = {
-  firstName: "John",
-  lastName: "Doe",
-  age: 50,
-  eyeColor: "blue"
+    firstName: "John",
+    lastName: "Doe",
+    age: 50,
+    eyeColor: "blue"
 };
 
 // To get the values within the object, you need the object name and the property name. As such:
@@ -92,71 +77,25 @@ person["firstName"]; // => "John"
 // If you store a function in an object, you have just created something we call a method. Here is an example:
 
 const person = {
-  firstName: "John",
-  lastName : "Doe",
-  id       : 5566,
-  fullName : function() {
-    return this.firstName + " " + this.lastName; // This method will return the full name of the person instance in this object.
-  }
+    firstName: "John",
+    lastName: "Doe",
+    id: 5566,
+    fullName: function () {
+        return this.firstName + " " + this.lastName; // This method will return the full name of the person instance in this object.
+    }
 };
-```
-
-## Events 
-
----
-
-    Events are changes in the DOM (Document Object Model), which is essentially the HTML of the page. You can use JavaScript to alter and create "reactions" to those events. An example would be when you click a button on the page and it shows you the curent time. Check below: 
 
 
-```html
-<!-- When the button is clicked, the "The time is?" text will be replaced by the current time. -->
-<button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button> 
+// Arrays
 
-
-<!-- The code above can be replaced by the following: -->
-<button onclick="this.innerHTML = Date()">The time is?</button>
-
-<!-- It can also be replaced by a function in a JavaScript file. -->
-<button onclick="displayDate()">The time is?</button>
-
-<script>
-    // Arrow functions return by default. 
-    const displayDate = () => Date();
-</script>
-
-```
-
-Here is a list of some common HTML events:
-| Event | 	Description |
-| :--- | :----: |
-| onchange | 	An HTML element has been changed |
-| onclick | 	The user clicks an HTML element |
-| onmouseover | 	The user moves the mouse over an HTML element |
-| onmouseout | 	The user moves the mouse away from an HTML element |
-| onkeydown | 	The user pushes a keyboard key |
-| onload | 	The browser has finished loading the page |
-
-
-## Arrays
-
----
-
-*Note: arrays are also objects. However, there are slight differences, such as the fact that arrays use numbers for indexing, objects use names. So, when to use arrays and when to use objects?*
-
-#### Choosing: 
-* You should use objects when you want the element names to be strings (text).
-* You should use arrays when you want the element names to be numbers.
-
-
-```javascript
 // An array can be created as such:
-const arrayName = [item1, item2, ...]; 
+const arrayName = [item1, item2, item3];
 const carsMake = ["Mercedes", "Bmw", "Tesla"]
 
 // The way to acces the values within an array, is by indexing. 
 carsMake[0]; // => output: "Mercedes"
 
-const fruits = ["Banana", "Orange", "Apple", "Mango"]; 
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
 let length = fruits.length; // Returns the number of elements
 
 fruits.sort()   // Sorts the array 
@@ -167,12 +106,6 @@ fruits.push("Lemon");  // Adds a new element (Lemon) to fruits at the last index
 const fruits = ["Banana", "Orange", "Apple"];
 fruits[6] = "Lemon";  // Creates undefined "holes" in fruits 
 // The code above adds Lemon to the array, but adds "Null" to all indexes from 3 (inclusively) to 6.
-
-```
-
-The class "Array", contains the constructor "Array", which means that you can initiallize an array with the values by doing such:
-
-```javascript
 
 const points = new Array();
 const points = [];
@@ -186,12 +119,6 @@ const points = [40];
 // Create an array with 40 undefined elements:
 const points = new Array(40);
 
-``` 
-
-### Array Methods
----
-
-```javascript
 // Convert to string
 const fruits = ["Banana", "Orange", "Apple", "Mango"];
 document.getElementById("demo").innerHTML = fruits.toString();
@@ -215,121 +142,110 @@ fruits.splice(2, 0, "Lemon", "Kiwi");
 // The first parameter (2) defines the position where new elements should be added (spliced in).
 // The second parameter (0) defines how many elements should be removed.
 // The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.
-```
 
-## Switch 
 
----
+// Switch
 
-### Syntax
+switch (expression) {
+    case x:
+        // code block
+        break;
+    case y:
+        // code block
+        break;
+    default:
+        // code block
 
-```javascript
-switch(expression) {
-  case x:
-    // code block
-    break;
-  case y:
-    // code block
-    break;
-  default:
-    // code block
+        // Concrete example:
+        switch (new Date().getDay()) {
+            case 0:
+                day = "Sunday";
+                break;
+            case 1:
+                day = "Monday";
+                break;
+            case 2:
+                day = "Tuesday";
+                break;
+            case 3:
+                day = "Wednesday";
+                break;
+            case 4:
+                day = "Thursday";
+                break;
+            case 5:
+                day = "Friday";
+                break;
+            case 6:
+                day = "Saturday";
+        }
 
-// Concrete example:
-switch (new Date().getDay()) {
-  case 0:
-    day = "Sunday";
-    break;
-  case 1:
-    day = "Monday";
-    break;
-  case 2:
-     day = "Tuesday";
-    break;
-  case 3:
-    day = "Wednesday";
-    break;
-  case 4:
-    day = "Thursday";
-    break;
-  case 5:
-    day = "Friday";
-    break;
-  case 6:
-    day = "Saturday";
+    // Answer depends on the value of the day. 
 }
 
-// Answer depends on the value of the day. 
-} 
 
-```
+// Loops 
 
-## Loops
-
----
-
-```javascript
 // For loop
 for (loopingVariable; condition; increments) {
-  // Code to run every iteration
-} 
+    // Code to run every iteration
+}
 // Example:
 for (let i = 0; i < cars.length; i++) {
-  text += cars[i] + "<br>";
-} 
+    text += cars[i] + "<br>";
+}
 
 
 
 // For IN
 for (key in object) {
-  // code block to be executed
+    // code block to be executed
 }
 
-const person = {fname:"John", lname:"Doe", age:25};
+const person = { fname: "John", lname: "Doe", age: 25 };
 
 let text = "";
 for (let x in person) {
-  text += person[x];
-} 
+    text += person[x];
+}
 
 
 // For OF
 for (variable of iterable) {
-  // code block to be executed
+    // code block to be executed
 }
 
 const cars = ["BMW", "Volvo", "Mini"];
 
 let text = "";
 for (let x of cars) {
-  text += x;
+    text += x;
 }
 
 
 
 // While loop
 while (condition) {
-  // code block to be executed
+    // code block to be executed
 }
 
 while (i < 10) {
     text += "The number is " + i;
     i++;
 
-    if (i == 9){ break; }
+    if (i == 9) { break; }
     // The break statement "jumps out" of a loop. 
-    if (i == 5){ continue; }
+    if (i == 5) { continue; }
     // The continue statement "jumps over" one iteration in the loop.
 
 }
-```
-## Sets 
----
 
-A *Set* is a unique collection of values. Each value can only occur once within the set. 
 
-```javascript
+
+// Sets
+
 // Create a Set
-const letters = new Set(["a","b","c"]);
+const letters = new Set(["a", "b", "c"]);
 
 // ================================
 
@@ -369,34 +285,17 @@ letters.values()   // Returns [object Set Iterator]
 // List all Elements
 let text = "";
 for (const x of letters.values()) {
-  text += x;
+    text += x;
 }
 
 
-
-```
-## Objects 
----
-
-A map holds key-value pairs (kind of like dictionaries in Python) where keys can be of any possible data-type.
-
-Maps can be similar to Objects, but here are the key differences:
-
-| X | Object | Map |
-| :--- | :--- | :--- | 
-| Iterable | Not directly iterable | Directly iterable |
-| Size | Do not have a size property | Have a size property |
-| Key Types | Keys must be Strings (or Symbols) | Keys can be any datatype |
-| Key Order | Keys are not well ordered | Keys are ordered by insertion |
-| Defaults | Have default keys | Do not have default keys |
-
-```javascript
+// Objects
 
 // Create a Map
 const fruits = new Map([
-  ["apples", 500],
-  ["bananas", 300],
-  ["oranges", 200]
+    ["apples", 500],
+    ["bananas", 300],
+    ["oranges", 200]
 ]);
 
 // ================================
@@ -422,7 +321,7 @@ fruits.get("apples");    // Returns 500
 // ================================
 
 // Returns the number of keys in the map.
-fruits.size; 
+fruits.size;
 
 // ================================
 
@@ -434,32 +333,19 @@ fruits.delete("apples");
 // Returns (true || false) depending if the key exists
 fruits.has("apples");
 
-```
 
-## What is ***this?***
 
----
-
-The keyword *this* refers to an object. Now, the object that it is refering to is very depend where it is being called. For example, it can be used within an object created by you to reference to internal properties, however, it can also be used to reference elements in the DOM.
-
-* In an object method, *this* refers to the object.
-* Alone, *this* refers to the global object.
-* In a function, *this* refers to the global object.
-* In a function, in strict mode, *this* is undefined.
-* In an event, *this* refers to the element that received the event.
-* Methods like call(), apply(), and bind() can refer *this* to any object.
-
-```javascript
+// "This" Key word
 
 // ================================
 
 const person = {
-  firstName: "John",
-  lastName : "Doe",
-  id       : 5566,
-  fullName : function() {
-    return this.firstName + " " + this.lastName; // Object referal [object person]
-  }
+    firstName: "John",
+    lastName: "Doe",
+    id: 5566,
+    fullName: function () {
+        return this.firstName + " " + this.lastName; // Object referal [object person]
+    }
 };
 
 // ================================
@@ -472,24 +358,16 @@ let x = this; // Global object reference => [object Window]
 let x = this; // Global object reference => [object Window]
 
 // ================================
- 
+
 <button onclick="this.style.display='none'">
-  Click to Remove Me! 
+    Click to Remove Me!
 </button> // Refers to the HTML element that received the event (Button in this case)
 
 // ================================
 // ================================
 
-```
 
-## Classes
-
----
-
-JavaScript classes are templates for JavaScript Objects. 
-
-
-```javascript
+// Classes
 
 class Car {
     constructor(name, year) { // Same principle as in C#, C++, and others, it needs a constructor. In Python, this is the initiallizer (__init__) 
@@ -516,21 +394,8 @@ class Car {
 
 }
 
-```
 
-## Modules
-
----
-
-Modules are the solution to having your code split into multiple files. This makes it easier to maintain the code base and the whole project in general. Modules rely extensively on *EXPORT* an *IMPORT*.
-
-In-line individually:
-
-
-
-
-
-```javascript
+// Modules (Imports && Exports)
 
 // ./person.js => In-Line Exports
 export const name = "Jesse";
@@ -540,14 +405,14 @@ export const age = 40;
 const name = "Jesse";
 const age = 40;
 
-export {name, age};
+export { name, age };
 
 // Default export allows to demonstrate the export created
 // ./message.js
 const message = () => {
-const name = "Jesse";
-const age = 40;
-return name + ' is ' + age + 'years old.';
+    const name = "Jesse";
+    const age = 40;
+    return name + ' is ' + age + 'years old.';
 };
 
 export default message;
@@ -558,4 +423,54 @@ export default message;
 import { name, age } from "./person.js";
 import message from "./message.js";
 
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
